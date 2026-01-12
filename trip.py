@@ -16,38 +16,38 @@ class IncomeTaxCalculator:
         # Define tax brackets based on filing status
         if self.filing_status == 0:  # Single
             return [
-                (8350, 0.10),
-                (33950, 0.15),
-                (82250, 0.25),
-                (171550, 0.28),
-                (372950, 0.33),
+                (0, 8350, 0.10),
+                (8351, 33950, 0.15),
+                (33951, 82250, 0.25),
+                (82251, 171550, 0.28),
+                (171551, 372950, 0.33),
                 (float('inf'), 0.35)
             ]
-        elif self.filing_status == 1:  # Married Filing Jointly
+        elif self.filing_status == 1:  # Married Filing Jointly or Qualified Widower
             return [
-                (16700, 0.10),
-                (67900, 0.15),
-                (137050, 0.25),
-                (208850, 0.28),
-                (372950, 0.33),
+                (0, 16700, 0.10),
+                (16701, 67900, 0.15),
+                (67901, 137050, 0.25),
+                (137051, 208850, 0.28),
+                (208851, 372950, 0.33),
                 (float('inf'), 0.35)
             ]
         elif self.filing_status == 2:  # Married Filing Separately
             return [
-                (8350, 0.10),
-                (33950, 0.15),
-                (68525, 0.25),
-                (104425, 0.28),
-                (186475, 0.33),
+                (0, 8350, 0.10),
+                (8351, 33950, 0.15),
+                (33950, 68525, 0.25),
+                (68525, 104425, 0.28),
+                (104425, 186475, 0.33),
                 (float('inf'), 0.35)
             ]
         elif self.filing_status == 3:  # Head of Household
             return [
-                (11950, 0.10),
-                (45500, 0.15),
-                (117450, 0.25),
-                (190200, 0.28),
-                (372950, 0.33),
+                (0, 11950, 0.10),
+                (11951, 45500, 0.15),
+                (45501, 117450, 0.25),
+                (117451, 190200, 0.28),
+                (190200, 372950, 0.33),
                 (float('inf'), 0.35)
             ]
         else:
@@ -76,5 +76,6 @@ if __name__ == "__main__":
         print(f"Net Income: {net_income:.2f}")
     except ValueError as e:
         print(f"Error: {e}")
+
 
         
